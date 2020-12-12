@@ -17,7 +17,7 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE dept_manager (
-	dept_no VARCHAR(4) NOT NULL,
+	 dept_no VARCHAR(4) NOT NULL,
      emp_no INT NOT NULL,
      from_date DATE NOT NULL,
      to_date DATE NOT NULL,
@@ -49,8 +49,8 @@ CREATE TABLE titles (
      emp_no INT NOT NULL,
      title VARCHAR(40) NOT NULL,
      from_date DATE NOT NULL,
- 	to_date DATE NOT NULL,
-	FOREIGN KEY (emp_no) REFERENCES employees (emp_no)
+ 	 to_date DATE NOT NULL,
+	 FOREIGN KEY (emp_no) REFERENCES employees (emp_no)
 );
 
 -- Had to drop table for titles and recreate it removing the primary key in order for import csv to work.
@@ -145,3 +145,72 @@ ORDER BY de.dept_no;
 
 -- Check the new retirement_count_bydept table.
 SELECT * FROM retirement_count_bydept;
+
+-- Module 7.3.5 Employee Information, Management, Department Retirees lists.
+SELECT * FROM salaries
+ORDER BY to_date DESC;
+
+-- Employee Information List.
+SELECT emp_no, 
+	first_name, 
+	last_name,
+	gender
+INTO emp_info
+FROM employees
+WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31');
+
+-- Recreating the employment info table to include information from joined salary and dept_emp tables.
+DROP TABLE emp_info;
+
+SELECT e.emp_no,
+	e.first_name,
+	e.last_name,
+    e.gender,
+    s.salary,
+    de.to_date
+INTO emp_info
+FROM employees as e
+INNER JOIN salaries as s
+ON (e.emp_no = s.emp_no)
+INNER JOIN dept_employees as de
+ON (e.emp_no = de.emp_no)
+WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+     AND (e.hire_date BETWEEN '1985-01-01' AND '1988-12-31')
+	 AND (de.to_date = '9999-01-01');
+
+-- Check the new employee info table.
+SELECT * FROM emp_info;
+
+-- Management List.
+SELECT  dm.dept_no,
+        d.dept_name,
+        dm.emp_no,
+        ce.last_name,
+        ce.first_name,
+        dm.from_date,
+        dm.to_date
+INTO manager_info
+FROM dept_manager as dm
+INNER JOIN departments as d
+ON (dm.dept_no = d.dept_no)
+INNER JOIN current_emp as ce
+ON (dm.emp_no = ce.emp_no);
+
+-- Check the new manager info table.
+SELECT * FROM manager_info;
+
+-- Department Retirees List.
+SELECT ce.emp_no,
+	ce.first_name,
+	ce.last_name,
+	d.dept_name
+INTO dept_info
+FROM current_emp as ce
+INNER JOIN dept_employees as de
+ON (ce.emp_no = de.emp_no)
+INNER JOIN departments as d
+ON (de.dept_no = d.dept_no);
+
+-- Check the new dept info table.
+SELECT * FROM dept_info;

@@ -214,3 +214,35 @@ ON (de.dept_no = d.dept_no);
 
 -- Check the new dept info table.
 SELECT * FROM dept_info;
+
+-- Module 7.3.6 Tailored Sales Team Retirees List.
+SELECT ce.emp_no,
+	ce.first_name,
+	ce.last_name,
+	d.dept_name
+INTO sales_retirees_info
+FROM current_emp as ce
+INNER JOIN dept_employees as de
+ON (ce.emp_no = de.emp_no)
+INNER JOIN departments as d
+ON (de.dept_no = d.dept_no)
+WHERE (d.dept_name = 'Sales');
+
+-- Check the new dept info table.
+SELECT * FROM sales_retirees_info;
+
+-- Module 7.3.6 Tailored Sales and Development Team Retirees List.
+SELECT ce.emp_no,
+	ce.first_name,
+	ce.last_name,
+	d.dept_name
+INTO sales_dev_retirees_info
+FROM current_emp as ce
+INNER JOIN dept_employees as de
+ON (ce.emp_no = de.emp_no)
+INNER JOIN departments as d
+ON (de.dept_no = d.dept_no)
+WHERE dept_name IN ('Sales', 'Development');
+
+-- Check the new dept info table.
+SELECT * FROM sales_dev_retirees_info;

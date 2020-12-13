@@ -13,20 +13,20 @@ After presenting the inital results, a brand new assignment was called that requ
 
 ## Deliverable 1 Results
 * A Retirement Titles table was created to list employees who are born between January 1, 1952 and December 31, 1955
-![image_retirement_titles]()
+![image_retirement_titles](https://github.com/Lora-Borja/Pewlett-Hackard-Analysis/blob/main/image_retirement_titles.PNG)
 
 
 * A Unique Titles table was created that contains the employee number, first and last name, and their most recent title
-![image_unique_titles]()
+![image_unique_titles](https://github.com/Lora-Borja/Pewlett-Hackard-Analysis/blob/main/image_unique_titles.PNG)
 
 
 * A Retiring Titles table was created that contains the number of employees by titles who are retiring that requires to be filled
-![image_unique_titles]()
+![image_retiring_titles](https://github.com/Lora-Borja/Pewlett-Hackard-Analysis/blob/main/image_retiring_titles.PNG)
 
 
 ## Deliverable 2 Results
 * A Mentorship Eligibility table was created to list current employees who were born between January 1, 1965 and December 31, 1965
-![image_mentorship_eligibility]()
+![image_mentorship_eligibility](https://github.com/Lora-Borja/Pewlett-Hackard-Analysis/blob/main/image_mentorship_eligibility.PNG)
 
 ## Overall Summary
 Based on the analysis results, there is quite many employees retiring. There company will need to fill a total of 90,398 across various titles. Majority of the employees who are retiring soon holds senior level titles, which is signaling a high impact result of the upcoming "silver tsunami" to the company's resources. The summary of the employee count who are retiring which is also broken down by titles can be seen in the above table under deliverable 1. Further, a list of retiring employees names along with their most recent titles is also provided in a CSV file. 

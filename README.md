@@ -2,7 +2,7 @@
 
 ## Project Overview
 The initial project was to perform employee research for a company called, Pewlett Hackard, to specifically find answers to the following questions: 
-1) Who will the retiring within the next few years?
+1) Who will be retiring within the next few years?
 2) How many positions will be required to fill? 
 
 The employee data was contained into six (6) CSV files, which was imported into PostgreSQL system. Through Quick DBD, the developed entity relationship diagram (ERD) was used as the map in designing tables in SQL in order to create databases needed for the analysis. The analysis generated a list of all employees who are eligible for the retirement package as well as provided a count of employee positions by department that will need to be filled due to the retirements. 

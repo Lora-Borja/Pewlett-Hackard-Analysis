@@ -22,7 +22,7 @@ After presenting the inital results, a brand new assignment was called that requ
 ![image_unique_titles](https://github.com/Lora-Borja/Pewlett-Hackard-Analysis/blob/main/image_unique_titles.PNG)
 
 
-* A Retiring Titles table was created that contains the number of employees by titles who are retiring that requires to be filled
+* A Retiring Titles table was created that contains the number of retiring employees by their titles
 
 ![image_retiring_titles](https://github.com/Lora-Borja/Pewlett-Hackard-Analysis/blob/main/image_retiring_titles.PNG)
 
